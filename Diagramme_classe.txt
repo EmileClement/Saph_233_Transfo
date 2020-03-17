@@ -1,0 +1,14 @@
+@startuml
+Inductance : - volume_externe
+Inductance : - hauteur
+Inductance : - larger
+Inductance : - l_active
+Inductance : - entrefer
+Inductance : - l_dent
+Inductance : - k_b
+Inductance : - j_max
+Inductance : - i_max
+
+Inductance : - calcul_energie()
+Inductance : - calcul_pertes_fer()
+@enduml
