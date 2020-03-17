@@ -3,7 +3,7 @@ Le but de ce projet est de dimentionner une inducatance. Elle doit etre la plus 
 
 ## Methode de modélisation du transformateur
 On utilise une classe inductance, crée par J.OJEDA, pour representer une inductance. Cette classe permet d'intéragir avec FEMM pour obtenir les performances.
-![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/anoff/plantbuddy/master/assets/overview.iuml)
+![system overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/EmileClement/Saph_233_Transfo/blob/master/assets/Diagramme_classe.puml)
 ## Fonction du coût
 La fonction doit prendre en compte le volume de l'inductance, les pertes et l'energie stocké.
 
