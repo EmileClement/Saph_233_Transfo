@@ -13,7 +13,7 @@ __status__ = "Education"
 
 ###############################################################################
 ##
-##    Dimensionnement d'une inductance saturable
+#%%  Dimensionnement d'une inductance saturable
 ##
 ###############################################################################
 
@@ -21,6 +21,7 @@ import femm
 import numpy as np
 
 class Inductance:
+    Last_id = 0
     """Classe définissant une inductance caractérisée par :
 
     - Son volume externe (volume_externe)
@@ -35,14 +36,12 @@ class Inductance:
 
 
     def __init__(self, induct):
-        """Les elements sont dans un dictionnaire rangé par ordre :
-            volume_externe, hauteur, largeur, l_active,
+        """Les elements sont dans un dictionnaire rangé par ordre :hauteur, largeur, l_active,
             entrefer, l_dent, k_b, j_max"""
-
+        self.id = Inductance.Last_id
+        Inductance.Last_id += 1
         for key, value in induct.items():
-            if key == "volume_externe":
-                self.volume_externe = value
-            elif key == "hauteur":
+            if key == "hauteur":
                 self.hauteur = value
             elif key == "largeur":
                 self.largeur = value
@@ -226,7 +225,7 @@ class Inductance:
     def sauvegarde_simulation(self):
         """Sauvegarde de la simulation (à faire avant de simuler)"""
         
-        femm.mi_saveas('transfo.fem')
+        femm.mi_saveas('/temp/transfo_{:0>5}.fem'.format(self.id))
         
     def maillage(self):
         """Maillage de la géométrie"""
@@ -341,14 +340,14 @@ class Inductance:
 
 
 ###############################################################################
-##    Corps du programme
+#%% Corps du programme
 ###############################################################################
 
 
 # # Définition des paramètres de l'inductance
-# induct = {"volume_externe":0.00131, "hauteur":0.1, "largeur":0.1,
-#            "l_active":0.06, "entrefer":0.006, "l_dent":0.026,
-#            "k_b":0.4, "j_max":5.0e6, "i_max":20}
+# induct = {"hauteur":0.1, "largeur":0.1,
+#             "l_active":0.06, "entrefer":0.006, "l_dent":0.026,
+#             "k_b":0.4, "j_max":5.0e6, "i_max":20}
 
 
 # A=Inductance(induct)
@@ -371,4 +370,4 @@ class Inductance:
 # print("Les pertes fer sont de {0:.1f} W".format(A.calcul_pertes_fer()))
 
 # # Fermeture de FEMM (à commenter si garder la fenêtre ouverte)
-# A.fermeture_simulation()
+# # A.fermeture_simulation()
