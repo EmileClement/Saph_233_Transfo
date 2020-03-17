@@ -19,9 +19,6 @@ __status__ = "Education"
 
 import femm
 import numpy as np
-import matplotlib.pyplot as plt
-
-
 
 class Inductance:
     """Classe définissant une inductance caractérisée par :
@@ -348,30 +345,30 @@ class Inductance:
 ###############################################################################
 
 
-# Définition des paramètres de l'inductance
-induct = {"volume_externe":0.00131, "hauteur":0.1, "largeur":0.1,
-           "l_active":0.06, "entrefer":0.006, "l_dent":0.026,
-           "k_b":0.4, "j_max":5.0e6, "i_max":20}
+# # Définition des paramètres de l'inductance
+# induct = {"volume_externe":0.00131, "hauteur":0.1, "largeur":0.1,
+#            "l_active":0.06, "entrefer":0.006, "l_dent":0.026,
+#            "k_b":0.4, "j_max":5.0e6, "i_max":20}
 
 
-A=Inductance(induct)
-A.creation_FEMM()
-A.creation_geometrie()
-A.fit_zoom()
-A.affectation_materiaux()
-A.conditions_limites()
-A.sauvegarde_simulation()
-A.maillage()
-A.simulation()
+# A=Inductance(induct)
+# A.creation_FEMM()
+# A.creation_geometrie()
+# A.fit_zoom()
+# A.affectation_materiaux()
+# A.conditions_limites()
+# A.sauvegarde_simulation()
+# A.maillage()
+# A.simulation()
 
-print("L'energie de l'inductance est de {0:.3f} J".format(A.calcul_energie()))
-print("Le volume externe de l'inductance est de {0:.6f} m^3".format(A.calcul_volume_externe()))
-print("Le volume de fer de l'inductance est de {0:.6f} m^3".format(A.calcul_volume_fer()))
-print("Le volume de cuivre de l'inductance est de {0:.6f} m^3".format(A.calcul_volume_cuivre()))
-print("La masse de fer de l'inductance est de {0:.3f} kg".format(A.calcul_masse_fer()))
-print("La masse de cuivre de l'inductance est de {0:.3f} kg".format(A.calcul_masse_cuivre()))
-print("Les pertes Joule sont de {0:.1f} W".format(A.calcul_pertes_joule()))
-print("Les pertes fer sont de {0:.1f} W".format(A.calcul_pertes_fer()))
+# print("L'energie de l'inductance est de {0:.3f} J".format(A.calcul_energie()))
+# print("Le volume externe de l'inductance est de {0:.6f} m^3".format(A.calcul_volume_externe()))
+# print("Le volume de fer de l'inductance est de {0:.6f} m^3".format(A.calcul_volume_fer()))
+# print("Le volume de cuivre de l'inductance est de {0:.6f} m^3".format(A.calcul_volume_cuivre()))
+# print("La masse de fer de l'inductance est de {0:.3f} kg".format(A.calcul_masse_fer()))
+# print("La masse de cuivre de l'inductance est de {0:.3f} kg".format(A.calcul_masse_cuivre()))
+# print("Les pertes Joule sont de {0:.1f} W".format(A.calcul_pertes_joule()))
+# print("Les pertes fer sont de {0:.1f} W".format(A.calcul_pertes_fer()))
 
-# Fermeture de FEMM (à commenter si garder la fenêtre ouverte)
-A.fermeture_simulation()
+# # Fermeture de FEMM (à commenter si garder la fenêtre ouverte)
+# A.fermeture_simulation()
