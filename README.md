@@ -1,13 +1,13 @@
 # Saph_233_Transfo
 
-##Methode de modélisation du transformateur
+## Methode de modélisation du transformateur
 
-##Fonction du coût
+## Fonction du coût
 
-##Minimisation du coût
+## Minimisation du coût
 
-###scypi
+### scypi
 
-###Platypus
+### Platypus
 
-###Notre algorithme évolutif
+### Notre algorithme évolutif
