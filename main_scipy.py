@@ -41,19 +41,22 @@ def encapsulation_inductance(X):
     inductance.simulation()
     
     cout = 0
-    cout += (inductance.calcul_energie() - 4)**2
-    cout += 1000 * inductance.calcul_volume_externe()**2
-    print(cout)
+    E = inductance.calcul_energie()
+    V = inductance.calcul_volume_externe()
+    cout = 10*(E-4)**2 + V
+    cout += 0.1 * ( (X[0] - X[1]) ** 2 + (X[0] - X[2])**2 + (X[1] - X[2])**2 )
+    print("E = {:.3e}J, V = {:.3e} m^2, J = {:.3e}".format(E, V, cout))
     return cout
 
-X_0 = (0.1, 0.1, 0.01, 0.01, 0.01)
+X_0 = (0.1, 0.1, 0.1, 0.01, 0.02)
 
 constraint_x = scipy.optimize.LinearConstraint([0, 1, 0, 0, -2 ], 
                                                distance_min, np.inf, True)
-constraint_y = scipy.optimize.LinearConstraint([1, 0, 0, 1, -1 ], 
+constraint_y = scipy.optimize.LinearConstraint([1, 0, 0, -1, -1 ], 
                                                distance_min, np.inf, True)
 
 opti = scipy.optimize.minimize(encapsulation_inductance, X_0, 
+                        method = 'TNC',
                         constraints = (constraint_x, constraint_y), 
                         bounds = 5*[(distance_min, 1)])
 
